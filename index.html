@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traveller App – AI-Powered Travel Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <div class="brand">Travellerr</div>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#ui">UI Preview</a>
+        </div>
+        <button class="nav-cta">Start Planning</button>
+      </nav>
+
+      <div class="hero-content container">
+        <div class="hero-copy">
+          <p class="eyebrow">AI-Powered Travel Companion</p>
+          <h1>Plan, compare, and book every trip through one intelligent travel workspace.</h1>
+          <p class="hero-text">
+            Traveller combines conversational AI, an interactive map, live travel inventory,
+            itinerary planning, and MCP-powered tool integrations into a single product vision.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn">View MVP Scope</button>
+            <button class="secondary-btn">Explore Architecture</button>
+          </div>
+          <ul class="hero-stats">
+            <li><strong>4</strong><span>delivery phases</span></li>
+            <li><strong>10+</strong><span>extended features</span></li>
+            <li><strong>1</strong><span>unified user journey</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-panel">
+          <div class="chat-card glass-card">
+            <div class="card-header">
+              <span class="card-title">AI Travel Assistant</span>
+              <span class="status-dot">Live</span>
+            </div>
+            <div class="chat-thread">
+              <div class="message user">Find me flights from London to Paris next Friday.</div>
+              <div class="message ai">
+                I found 6 flight options and 3 hotels near the city centre. Want the cheapest,
+                fastest, or most flexible itinerary?
+              </div>
+              <div class="message user">Show the cheapest plus a 3-day itinerary.</div>
+            </div>
+            <div class="composer">
+              <span>Ask about flights, stays, or activities…</span>
+              <button>Send</button>
+            </div>
+          </div>
+
+          <div class="map-card glass-card">
+            <div class="map-grid">
+              <span class="map-point p1">✈</span>
+              <span class="map-point p2">📍</span>
+              <span class="map-point p3">🏨</span>
+              <span class="map-point p4">🎟</span>
+            </div>
+            <div class="map-overlay">
+              <h3>Interactive Map Layers</h3>
+              <p>Flight routes, weather, attractions, saved places, and geofenced deal alerts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section container" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">Core features</p>
+          <h2>Everything needed for a modern AI travel platform.</h2>
+          <p>
+            This concept page translates the implementation plan into a rich, interactive product
+            landing page using pure HTML, CSS, and JavaScript.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>AI-powered chat assistant</h3>
+            <p>Natural-language trip planning, context retention, voice-ready interactions, and rich responses.</p>
+            <ul>
+              <li>Context-aware follow-up questions</li>
+              <li>Flight, hotel, and activity discovery</li>
+              <li>Personalised travel recommendations</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <h3>Interactive map exploration</h3>
+            <p>Visual discovery with destination markers, saved places, route layers, and place-based alerts.</p>
+            <ul>
+              <li>Map layers for weather and attractions</li>
+              <li>POI details in bottom sheets</li>
+              <li>Geofencing and destination deal prompts</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <h3>MCP-based flight search</h3>
+            <p>Structured tool calls allow the assistant to query providers in a grounded, schema-first workflow.</p>
+            <ul>
+              <li>Search multiple APIs via one AI workflow</li>
+              <li>Smart filtering from user preferences</li>
+              <li>Real-time availability and pricing</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <h3>Travel platform connectivity</h3>
+            <p>Normalised integrations for bookings, hotels, tours, notifications, and secure payment flows.</p>
+            <ul>
+              <li>Flight, hotel, and activity provider adapters</li>
+              <li>Payment gateway integration</li>
+              <li>Booking orchestration and confirmations</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section alt-section" id="extended">
+        <div class="container">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Extended capabilities</p>
+            <h2>High-value additions that turn planning into a full travel companion.</h2>
+          </div>
+          <div class="pill-grid" id="pill-grid"></div>
+        </div>
+      </section>
+
+      <section class="section container" id="architecture">
+        <div class="section-heading">
+          <p class="eyebrow">System architecture</p>
+          <h2>Composable services designed for scale, reliability, and grounded AI responses.</h2>
+        </div>
+        <div class="architecture-layout">
+          <div class="architecture-diagram glass-card">
+            <div class="arch-node">Mobile App</div>
+            <div class="arch-line"></div>
+            <div class="arch-node primary">API Gateway</div>
+            <div class="arch-branches">
+              <div class="arch-node">Backend Services</div>
+              <div class="arch-node">AI Service + MCP</div>
+              <div class="arch-node">Third-Party APIs</div>
+              <div class="arch-node">PostgreSQL / MongoDB</div>
+              <div class="arch-node">Redis / Queue</div>
+            </div>
+          </div>
+          <div class="architecture-copy">
+            <div class="info-card">
+              <h3>Backend domains</h3>
+              <p>User management, booking orchestration, notifications, maps, and conversation memory.</p>
+            </div>
+            <div class="info-card">
+              <h3>MCP workflow</h3>
+              <p>Expose travel services as tools with strict schemas so the assistant can query real providers safely.</p>
+            </div>
+            <div class="info-card">
+              <h3>Data strategy</h3>
+              <p>PostgreSQL for transactional data, MongoDB for chat and itinerary content, Redis for speed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt-section" id="stack">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Technology stack</p>
+            <h2>Recommended implementation choices across product layers.</h2>
+          </div>
+          <div class="stack-table" id="stack-table"></div>
+        </div>
+      </section>
+
+      <section class="section container" id="roadmap">
+        <div class="section-heading">
+          <p class="eyebrow">Delivery roadmap</p>
+          <h2>Phased execution from MVP to advanced intelligence.</h2>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="section alt-section" id="ui">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">UI / wireframe concepts</p>
+            <h2>Key screens envisioned for the Traveller experience.</h2>
+          </div>
+          <div class="screen-grid" id="screen-grid"></div>
+        </div>
+      </section>
+
+      <section class="section container" id="security">
+        <div class="section-heading">
+          <p class="eyebrow">Security & challenges</p>
+          <h2>Guardrails for trust, scale, and operational resilience.</h2>
+        </div>
+        <div class="dual-grid">
+          <div class="panel-card">
+            <h3>Security considerations</h3>
+            <ul id="security-list"></ul>
+          </div>
+          <div class="panel-card">
+            <h3>Risks & mitigations</h3>
+            <ul id="challenge-list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div>
+          <p class="eyebrow">Traveller App blueprint</p>
+          <h2>Built as a polished single-page HTML, CSS, and JavaScript concept.</h2>
+        </div>
+        <button class="primary-btn" id="scroll-top">Back to top</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
