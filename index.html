@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travellerr — AI Travel Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-mark">T</div>
+          <div>
+            <p class="eyebrow">Smart trip planner</p>
+            <h1>Travellerr</h1>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#planner">Planner</a>
+          <a href="#assistant">Assistant</a>
+          <a href="#map">Map</a>
+          <a href="#itinerary">Itinerary</a>
+          <a href="#insights">Insights</a>
+        </nav>
+        <div class="sidebar-summary panel">
+          <h2>Your Trip</h2>
+          <div id="trip-overview"></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <section class="hero panel" id="planner">
+          <div>
+            <p class="eyebrow">AI-powered travel companion</p>
+            <h2>Build an actual trip with flights, hotels, activities, alerts, budget, and itinerary tools.</h2>
+            <p class="muted">
+              This version is a working front-end experience: search sample live-style inventory,
+              chat with an assistant, manage itinerary items, save alerts, track spending, and
+              explore destination data in one place.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-btn" data-scroll="#assistant">Open assistant</button>
+            <button class="secondary-btn" data-scroll="#itinerary">View itinerary</button>
+          </div>
+        </section>
+
+        <section class="planner-grid">
+          <section class="panel search-panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Trip search</p>
+                <h3>Flights, hotels, and activities</h3>
+              </div>
+              <span class="status-chip">Working demo</span>
+            </div>
+            <form id="search-form" class="search-form">
+              <label>
+                Origin
+                <select id="origin" name="origin"></select>
+              </label>
+              <label>
+                Destination
+                <select id="destination" name="destination"></select>
+              </label>
+              <label>
+                Depart
+                <input type="date" id="departDate" name="departDate" required />
+              </label>
+              <label>
+                Return
+                <input type="date" id="returnDate" name="returnDate" />
+              </label>
+              <label>
+                Budget
+                <input type="range" id="budget" min="200" max="3000" step="50" value="1200" />
+                <span id="budget-output">$1200</span>
+              </label>
+              <label>
+                Preferences
+                <div class="check-grid">
+                  <label><input type="checkbox" value="direct" class="pref" /> Direct only</label>
+                  <label><input type="checkbox" value="eco" class="pref" /> Eco priority</label>
+                  <label><input type="checkbox" value="luxury" class="pref" /> Premium stay</label>
+                  <label><input type="checkbox" value="family" class="pref" /> Family-friendly</label>
+                </div>
+              </label>
+              <button class="primary-btn" type="submit">Search trip</button>
+            </form>
+          </section>
+
+          <section class="panel summary-panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Live summary</p>
+                <h3>Recommended journey</h3>
+              </div>
+            </div>
+            <div id="recommendation-card" class="recommendation-card empty-state">
+              Run a search to generate a personalised trip recommendation.
+            </div>
+            <div class="quick-stats" id="quick-stats"></div>
+          </section>
+        </section>
+
+        <section class="content-grid">
+          <section class="panel" id="assistant">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">AI assistant</p>
+                <h3>Ask in natural language</h3>
+              </div>
+            </div>
+            <div id="chat-thread" class="chat-thread"></div>
+            <form id="chat-form" class="chat-form">
+              <input
+                id="chat-input"
+                type="text"
+                placeholder="e.g. Find me a cheaper flight or suggest a 3-day itinerary in Tokyo"
+                autocomplete="off"
+              />
+              <button class="primary-btn" type="submit">Send</button>
+            </form>
+          </section>
+
+          <section class="panel" id="map">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Destination explorer</p>
+                <h3>Interactive map & place cards</h3>
+              </div>
+              <button class="ghost-btn" id="toggle-route">Toggle route layer</button>
+            </div>
+            <div class="map-shell">
+              <div class="map-stage" id="map-stage"></div>
+              <div class="map-details" id="map-details"></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="results-grid">
+          <section class="panel inventory-panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Flight inventory</p>
+                <h3>Available options</h3>
+              </div>
+            </div>
+            <div id="flight-results" class="result-list"></div>
+          </section>
+          <section class="panel inventory-panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Hotels</p>
+                <h3>Places to stay</h3>
+              </div>
+            </div>
+            <div id="hotel-results" class="result-list"></div>
+          </section>
+          <section class="panel inventory-panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Activities</p>
+                <h3>Things to do</h3>
+              </div>
+            </div>
+            <div id="activity-results" class="result-list"></div>
+          </section>
+        </section>
+
+        <section class="content-grid lower-grid">
+          <section class="panel" id="itinerary">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Itinerary builder</p>
+                <h3>Drag, reorder, and schedule</h3>
+              </div>
+            </div>
+            <form id="itinerary-form" class="inline-form">
+              <input id="itinerary-title" type="text" placeholder="Add activity or note" />
+              <input id="itinerary-day" type="number" min="1" max="14" value="1" />
+              <input id="itinerary-time" type="time" value="09:00" />
+              <button class="primary-btn" type="submit">Add item</button>
+            </form>
+            <div id="itinerary-board" class="itinerary-board"></div>
+          </section>
+
+          <section class="panel" id="insights">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Travel insights</p>
+                <h3>Alerts, weather, budget, translator, safety</h3>
+              </div>
+            </div>
+            <div class="insight-tabs">
+              <button class="tab-btn active" data-tab="alerts">Alerts</button>
+              <button class="tab-btn" data-tab="weather">Weather</button>
+              <button class="tab-btn" data-tab="budget">Budget</button>
+              <button class="tab-btn" data-tab="translator">Translator</button>
+              <button class="tab-btn" data-tab="safety">Safety</button>
+            </div>
+
+            <div class="tab-panel active" id="tab-alerts">
+              <form id="alert-form" class="inline-form">
+                <input id="alert-route" type="text" placeholder="Route alert e.g. NYC → TYO" />
+                <input id="alert-price" type="number" min="100" placeholder="Target price" />
+                <button class="primary-btn" type="submit">Save alert</button>
+              </form>
+              <div id="alerts-list" class="stack-list"></div>
+            </div>
+
+            <div class="tab-panel" id="tab-weather">
+              <div id="weather-card" class="info-grid"></div>
+              <div id="events-list" class="stack-list compact"></div>
+            </div>
+
+            <div class="tab-panel" id="tab-budget">
+              <form id="expense-form" class="inline-form">
+                <input id="expense-label" type="text" placeholder="Expense label" />
+                <input id="expense-amount" type="number" min="1" placeholder="Amount" />
+                <button class="primary-btn" type="submit">Log expense</button>
+              </form>
+              <div id="budget-summary" class="budget-summary"></div>
+              <div id="expense-list" class="stack-list compact"></div>
+            </div>
+
+            <div class="tab-panel" id="tab-translator">
+              <form id="translator-form" class="inline-form translator-form">
+                <select id="translator-language"></select>
+                <input id="translator-input" type="text" placeholder="Type an English travel phrase" />
+                <button class="primary-btn" type="submit">Translate</button>
+              </form>
+              <div id="translator-output" class="translator-output"></div>
+            </div>
+
+            <div class="tab-panel" id="tab-safety">
+              <div id="safety-card" class="info-grid"></div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <template id="chat-message-template">
+      <div class="message-row">
+        <div class="message-bubble"></div>
+      </div>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
